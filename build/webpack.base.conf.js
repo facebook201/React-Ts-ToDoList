@@ -11,7 +11,7 @@ function resolve(dir) {
 }
 
 module.exports = smp.wrap({
-  entry: './src/index.tsx',
+  entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist')
