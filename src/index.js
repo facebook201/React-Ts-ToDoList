@@ -11,7 +11,9 @@ import App from './App';
 
 // import reducers from './store';
 // import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { get } from 'axios';
 
 function reducers(state = { count: 1 }, action) {
   switch (action.type) {
@@ -25,19 +27,51 @@ function reducers(state = { count: 1 }, action) {
   }
 };
 
-const store = createStore(
+function postReducer(state = { list: [ { title: '你好！'} ] }, action) {
+  switch(action.type) {
+    case 'LOAD_POSTS':
+      return {
+        ...state, list: action.payload
+      };
+    default:
+      return state;
+  }
+}
+
+const rootReducers = combineReducers({
   reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
-
-store.dispatch({
-  type: 'COUNT_ADD'
+  postReducer
 });
 
 
-console.log(store);
-console.log(store.getState());
+const store = createStore(
+  rootReducers,
+  compose(
+    applyMiddleware(...[thunk])
+  )
+);
+
+store.dispatch({
+  type: 'COUNT_ADD',
+  payload: {}
+});
+
+const getPostsRequest = () => {
+  return get('https://jsonplaceholder.typicode.com/posts');
+}
+
+async function aDispatch(dispatch) {
+  const res = await getPostsRequest();
+  console.log(res);
+  dispatch({
+    type: 'LOAD_POSTS',
+    payload: res.data
+  });
+}
+
+store.dispatch(aDispatch);
+// window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
 
 // ReactDOM.render(
 //   <Provider store={store}>
