@@ -11,33 +11,11 @@ import App from './App';
 
 // import reducers from './store';
 // import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-
-function reducers(state = { count: 1 }, action) {
-  switch (action.type) {
-    case 'COUNT_ADD':
-      return {
-        ...state,
-        count: state.count + 1
-      };
-    default:
-      return state;
-  }
-};
-
-const store = createStore(
-  reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
-
-store.dispatch({
-  type: 'COUNT_ADD'
-});
-
-
-console.log(store);
-console.log(store.getState());
+// import { createStore } from 'redux';
+// const store = createStore(
+//   reducers,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
 
 // ReactDOM.render(
 //   <Provider store={store}>
