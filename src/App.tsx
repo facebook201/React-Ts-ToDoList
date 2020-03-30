@@ -1,18 +1,10 @@
 import * as React from 'react';
-import Todo from './todo/Todo';
+import Example from './Hooks/State';
 
-// interface IProps {
-//   todo: Todo;
-//   deleteTodo: (todo: Todo) => void;
-//   key?: any
-// }
-export default class App extends React.Component {
-  render() {
-    return (
-      <div className="app-container">
-        <Todo />
-      </div>
-    );
-  }
-};
+const App = () => (
+  <div>
+    <Example />
+  </div>
+);
 
+export default App;
