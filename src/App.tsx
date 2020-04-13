@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Example from './Hooks/State';
+import Button from './components/Button';
 
 const App = () => (
   <div>
-    <Example />
+    <Button>点击</Button>
   </div>
 );
 
