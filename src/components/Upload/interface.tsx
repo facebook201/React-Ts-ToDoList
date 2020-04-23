@@ -20,5 +20,9 @@ export interface UploadProps {
   fileList?: Array<UploadFile>;
 }
 
-
+// 上传
+export interface AjaxUploadProps {
+  multiple: boolean;
+  onClick(event: React.MouseEvent<HTMLDivElement>): void;
+}
 

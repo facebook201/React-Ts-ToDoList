@@ -54,7 +54,6 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
      * 可以有提示文案，支持手动上传 不自动上传
      **/
 
-    const uploadComponent = <input type="file" {...props} />
     return (
       <div className="dm-upload">
         {  }
