@@ -36,21 +36,8 @@ export type NativeButtonProps = {
 export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
 export default class Button extends React.Component<ButtonProps, any> {
-
-  // static defaultProps = {
-  //   loading: false,
-  //   block: false,
-  //   ghost: false,
-  // };
-
   handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
     const { onClick } = this.props;
-    // if (!!loading) {
-    //  return;
-    // }
-    if (onClick) {
-      (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
-    }
   }
 
   render() {
@@ -85,6 +72,7 @@ export default class Button extends React.Component<ButtonProps, any> {
           type={htmlType || 'button'}
           onClick={this.handleClick}
           className={classes}>
+          {this.props.children}
         </button>
       );
     }

@@ -56,8 +56,8 @@ module.exports = smp.wrap({
         loader: 'url-loader'
       },
       {
-        test: /\.(jpg|jpeg|png|gif)$/,
-        loader: 'url-loader',
+        test: /\.(jpg|jpeg|png|gif|svg)$/,
+        loader: 'file-loader',
         query: {
           limit: 10000
         }
@@ -66,7 +66,7 @@ module.exports = smp.wrap({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve('index.html')
+      template: resolve('./index.html')
     }),
   ]
 });

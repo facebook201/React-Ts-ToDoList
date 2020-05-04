@@ -1,7 +1,6 @@
 
 import * as React from 'react';
 
-
 import {
   UploadState,
   UploadProps,
@@ -16,7 +15,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     name: 'file',
     action: '',
     data: {},
-    beforeUpload: T,
+    // beforeUpload: T,
     className: '',
     showUploadList: true,
   };
@@ -38,15 +37,6 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     this.state = {
       fileList: props.fileList || []
     };
-  }
-
-  componentWillMount() {
-    this.clearProgressTimer();
-  }
-
-
-  clearProgressTimer() {
-    clearInterval(this.progressTimer);
   }
 
   render() {

@@ -2,17 +2,12 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import { AjaxUploadProps } from './interface';
 
-
-export default class AjaxUpload extends Component<AjaxUploadProps, any> {
+export default class AjaxUpload extends Component<AjaxUploadProps> {
   static defaultProps = {
     name: 'file'
   };
 
-  constructor(props: AjaxUploadProps) {
-    super(props);
-  }
-
-  handleClick = () => {
+  handleClick = (): void => {
 
   };
 
@@ -21,20 +16,15 @@ export default class AjaxUpload extends Component<AjaxUploadProps, any> {
   };
 
 
-  render(): React.ReactNode {
-
+  render() {
     const className = classNames({
       'dm-upload': true,
     });
-
-    const {
-      multiple
-    } = this.props;
-
+    const { multiple } = this.props;
     return (
       <div
         className={className}
-        onClick={() => this.handleClick()}>
+        onClick={() => this.handleClick}>
           <input
             className="dm-upload--input"
             type="file"
@@ -45,4 +35,4 @@ export default class AjaxUpload extends Component<AjaxUploadProps, any> {
       </div>
     );
   }
-}
+};

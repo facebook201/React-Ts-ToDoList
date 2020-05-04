@@ -23,6 +23,7 @@ export interface UploadProps {
 // 上传
 export interface AjaxUploadProps {
   multiple: boolean;
+  propTypes: any;
   onClick(event: React.MouseEvent<HTMLDivElement>): void;
 }
 

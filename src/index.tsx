@@ -1,13 +1,14 @@
 /*
  * @Author: shiyao
- * @Description: 小程序4.0
  * @Date: 2020-02-13 09:10:21
  */
 import ReactDOM from 'react-dom';
 import React from 'react';
 import zhCN from 'antd/es/locale-provider/zh_CN';
 import 'antd/dist/antd.css';
-import App from './App';
+import './reset.less';
+// import App from './App';
+import Admin from './Admin';
 /**
  * View 要改变数据
  * 1、首先要页面通过 dispatch 触发 action
@@ -17,4 +18,4 @@ import App from './App';
 
 // const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Admin />, document.getElementById('root'));
